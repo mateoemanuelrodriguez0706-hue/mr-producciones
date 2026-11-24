@@ -61,6 +61,19 @@
   .redes{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
   .redes .btn{min-height:50px;padding:12px;font-size:15.5px}
 
+  /* Título + video en la primera pantalla */
+  .hero{padding:18px 0 26px}
+  .hero .marca{margin-bottom:14px}
+  .hero h1{font-size:clamp(26px,6.8vw,42px);margin-bottom:0}
+  .hero .video-caja{position:relative;width:auto;max-width:100%;height:min(54vh,560px);height:min(54svh,560px);margin:16px auto 0}
+  .play-grande{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:12px;
+    padding:0 16px 34px;background:linear-gradient(transparent 35%,rgba(0,0,0,.7));border:0;color:#fff;font:inherit;
+    font-weight:800;font-size:17px;line-height:1.25;text-align:center;cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+  .play-grande .circulo{width:84px;height:84px;border-radius:50%;background:var(--dorado);color:#1a1209;display:grid;place-items:center;
+    font-size:34px;padding-left:6px;box-shadow:0 6px 24px rgba(0,0,0,.55)}
+  .play-grande:active .circulo{background:var(--ambar)}
+  .play-grande[hidden]{display:none}
+
   /* 2 · Video del plan de acción */
   .video-caja{border-radius:18px;overflow:hidden;background:#000;border:1px solid var(--linea);
     aspect-ratio:9/16;width:min(100%,360px);margin:22px auto 0}
@@ -147,6 +160,13 @@
     <div class="marca"><span class="logo">MR</span> MR PRODUCCIONES</div>
     <p class="kicker">Producción musical cristiana a distancia</p>
     <h1>Tu canción producida, mezclada y masterizada en <span class="oro">6 días</span>.</h1>
+    <div class="video-caja" id="videoCaja">
+      <div class="video-pronto" id="videoPronto">
+        <span style="font-size:34px">🎬</span>
+        <b>El video del plan de acción llega muy pronto</b>
+        <span>Mientras tanto, aquí abajo tienes cada paso con su fecha.</span>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -155,15 +175,8 @@
   <div class="wrap">
     <p class="kicker">Plan de acción</p>
     <h2>Así trabajamos tu canción, día por día</h2>
-    <p class="suave">Mira el video y, debajo, tienes cada paso por escrito. Todo cuenta desde el día en que recibo tu anticipo.</p>
+    <p class="suave">Aquí tienes cada paso por escrito. Todo cuenta desde el día en que recibo tu anticipo.</p>
 
-    <div class="video-caja" id="videoCaja">
-      <div class="video-pronto" id="videoPronto">
-        <span style="font-size:34px">🎬</span>
-        <b>El video del plan de acción llega muy pronto</b>
-        <span>Mientras tanto, aquí abajo tienes cada paso con su fecha.</span>
-      </div>
-    </div>
 
     <ol class="crono">
       <li><div class="dia"><small>Día</small><b>0</b></div>
@@ -387,9 +400,16 @@ var TRABAJOS = [
   /* ---------- video del plan de acción ---------- */
   if(CONFIG.video){
     var caja=document.getElementById("videoCaja");
-    caja.innerHTML='<video id="videoPlan" controls playsinline preload="none"'+
+    caja.innerHTML='<video id="videoPlan" muted autoplay loop playsinline preload="auto"'+
       (CONFIG.videoPortada?' poster="'+esc(CONFIG.videoPortada)+'"':'')+' src="'+esc(CONFIG.video)+'"></video>';
-    document.getElementById("videoPlan").addEventListener("play",function(){ ev("PlayVideoPlan"); },{once:true});
+    caja.insertAdjacentHTML("beforeend",'<button type="button" class="play-grande" id="playGrande" aria-label="Ver el video con sonido"><span class="circulo">🔊</span>Toca para escucharlo con sonido</button>');
+    var vp=document.getElementById("videoPlan"), pg=document.getElementById("playGrande"), medido=false;
+    vp.muted=true; vp.controls=false;
+    pg.addEventListener("click",function(){
+      pg.hidden=true; vp.loop=false; vp.muted=false; vp.currentTime=0; vp.controls=true; vp.play();
+      if(!medido){ medido=true; ev("PlayVideoPlan"); }
+    });
+    var intento=vp.play(); if(intento&&intento.catch) intento.catch(function(){}); // si el celular no deja, queda el botón
   }
 
   /* ---------- trabajos realizados ---------- */
