@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>MR Producciones · Tu canción en 6 días</title>
-<meta name="description" content="Producción, mezcla y mastering de tu canción cristiana a distancia, con fechas claras desde el primer día. Lee las condiciones y escucha trabajos reales.">
+<meta name="description" content="Producción, mezcla, mastering y video lyric de tu canción cristiana a distancia, con fechas claras desde el primer día.">
 <meta name="theme-color" content="#121212">
 <meta property="og:title" content="MR Producciones · Tu canción en 6 días">
-<meta property="og:description" content="Producción, mezcla y mastering a distancia, con fechas claras desde el primer día.">
+<meta property="og:description" content="Producción, mezcla, mastering y video lyric a distancia, con fechas claras desde el primer día.">
 <style>
   /* Paleta de marca MR (Obsidian · Paleta de marca) */
   :root{
@@ -23,10 +23,10 @@
   img,video{max-width:100%;display:block}
   a{color:var(--dorado)}
   .wrap{max-width:760px;margin:0 auto;padding:0 18px}
-  section{padding:56px 0;border-top:1px solid var(--linea)}
+  section{padding:52px 0;border-top:1px solid var(--linea)}
   .kicker{color:var(--dorado);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:13px;margin:0 0 8px}
   h1,h2,h3{line-height:1.15;margin:0 0 14px}
-  h1{font-size:clamp(32px,8vw,50px);font-weight:850;letter-spacing:-.01em}
+  h1{font-size:clamp(30px,7.5vw,46px);font-weight:850;letter-spacing:-.01em}
   h2{font-size:clamp(26px,6vw,36px);font-weight:800}
   h3{font-size:19px}
   p{margin:0 0 14px}
@@ -40,26 +40,38 @@
   .btn-linea{background:transparent;color:var(--crema);border:1.5px solid var(--cacao)}
   .btn-wa{background:var(--verde);color:#062b14;width:100%;font-size:18px}
   .btn-wa:active{filter:brightness(.92)}
-  .botones{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .botones{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
   .botones .btn{flex:1 1 200px}
 
-  /* Portada */
-  .hero{padding:34px 0 48px;border-top:0;
+  /* 1 · Presentación y redes */
+  .hero{padding:30px 0 46px;border-top:0;
     background:radial-gradient(120% 80% at 80% 0%,rgba(200,122,42,.28),transparent 60%),var(--bg)}
-  .marca{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.06em;margin-bottom:34px}
+  .marca{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.06em;margin-bottom:28px}
   .logo{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--dorado),var(--ambar));
     color:#1a1209;display:grid;place-items:center;font-weight:900;font-size:15px}
-  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0;padding:0;list-style:none}
+  .presenta{background:var(--panel);border:1px solid var(--linea);border-radius:20px;padding:20px}
+  .presenta .cabeza{display:flex;gap:14px;align-items:center;margin-bottom:14px}
+  .avatar{width:64px;height:64px;border-radius:50%;flex:0 0 64px;background:var(--panel2);border:2px solid var(--dorado);
+    display:grid;place-items:center;font-size:28px;overflow:hidden}
+  .avatar img{width:100%;height:100%;object-fit:cover}
+  .presenta h2{font-size:24px;margin:0}
+  .presenta .rol{color:var(--suave);font-size:15px;margin:2px 0 0}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0;padding:0;list-style:none}
   .chips li{background:var(--panel2);border:1px solid var(--linea);border-radius:99px;padding:7px 13px;font-size:14.5px}
+  .redes{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+  .redes .btn{min-height:50px;padding:12px;font-size:15.5px}
 
-  /* Video */
-  .video-caja{border-radius:18px;overflow:hidden;background:#000;border:1px solid var(--linea);aspect-ratio:9/16;max-height:78vh;margin:0 auto}
-  .video-caja video{width:100%;height:100%;object-fit:contain}
-
-  /* Cronograma */
-  .crono{list-style:none;margin:26px 0 0;padding:0;position:relative}
+  /* 2 · Video del plan de acción */
+  .video-caja{border-radius:18px;overflow:hidden;background:#000;border:1px solid var(--linea);
+    aspect-ratio:9/16;width:min(100%,360px);margin:22px auto 0}
+  .video-caja video{width:100%;height:100%;object-fit:contain;background:#000}
+  .video-pronto{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;padding:24px;gap:10px;color:var(--suave);
+    background:radial-gradient(90% 60% at 50% 30%,rgba(216,156,61,.18),transparent 70%),var(--panel)}
+  .video-pronto b{color:var(--crema);font-size:18px}
+  .crono{list-style:none;margin:30px 0 0;padding:0;position:relative}
   .crono:before{content:"";position:absolute;left:31px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--dorado),var(--cacao))}
-  .crono li{position:relative;display:grid;grid-template-columns:64px 1fr;gap:14px;margin-bottom:18px}
+  .crono li{position:relative;display:grid;grid-template-columns:64px 1fr;gap:14px;margin-bottom:16px}
   .dia{width:64px;height:64px;border-radius:16px;background:var(--panel2);border:1.5px solid var(--dorado);
     display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;z-index:1}
   .dia small{font-size:11px;letter-spacing:.08em;color:var(--suave);text-transform:uppercase}
@@ -71,34 +83,25 @@
   .q-tu{background:#3b2a14;color:var(--dorado)}
   .q-yo{background:#2d2a27;color:var(--crema)}
 
-  /* Tarjetas */
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:20px}
-  .card{background:var(--panel);border:1px solid var(--linea);border-radius:16px;padding:16px}
-  .card h3{font-size:17px;margin-bottom:6px}
-  .card p{margin:0;color:var(--suave);font-size:15.5px}
-  .ico{font-size:24px;margin-bottom:8px}
-
-  /* Términos */
-  .terminos{counter-reset:t;list-style:none;padding:0;margin:20px 0 0}
-  .terminos li{counter-increment:t;position:relative;padding:14px 14px 14px 52px;background:var(--panel);
-    border:1px solid var(--linea);border-radius:14px;margin-bottom:10px}
-  .terminos li:before{content:counter(t);position:absolute;left:14px;top:13px;width:26px;height:26px;border-radius:8px;
-    background:var(--espresso);color:var(--crema);display:grid;place-items:center;font-weight:800;font-size:14px}
-  .precio{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
-  .precio div{flex:1 1 160px;background:var(--panel2);border:1px solid var(--linea);border-radius:14px;padding:14px}
-  .precio small{display:block;color:var(--suave);font-size:13.5px}
-  .precio b{font-size:26px;color:var(--dorado)}
-
-  /* Trabajos */
-  .filtros{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
-  .filtro{min-height:44px;padding:9px 16px;border-radius:99px;border:1.5px solid var(--cacao);background:transparent;
-    color:var(--crema);font:inherit;font-size:15px;font-weight:650;cursor:pointer;-webkit-tap-highlight-color:transparent}
-  .filtro[aria-pressed="true"]{background:var(--dorado);border-color:var(--dorado);color:#1a1209}
-  .pista{background:var(--panel);border:1px solid var(--linea);border-radius:16px;padding:14px 16px;margin-top:12px}
-  .pista .tipo{font-size:12.5px;font-weight:700;color:var(--dorado);text-transform:uppercase;letter-spacing:.06em}
-  .pista h3{margin:4px 0 2px;font-size:17px}
-  .pista p{margin:0 0 10px;color:var(--suave);font-size:15px}
-  .pista audio{width:100%;height:44px}
+  /* 3 · Trabajos realizados (carrusel) */
+  .carrusel{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+    padding:4px 18px 14px;margin:18px -18px 0;scrollbar-width:thin}
+  .trabajo{flex:0 0 min(62vw,230px);scroll-snap-align:start;background:var(--panel);border:1px solid var(--linea);
+    border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+  .trabajo .medio{aspect-ratio:9/16;background:#000}
+  .trabajo .medio video{width:100%;height:100%;object-fit:cover}
+  .trabajo .medio.audio{display:flex;align-items:flex-end;padding:12px;
+    background:radial-gradient(80% 60% at 50% 35%,rgba(216,156,61,.25),transparent 70%),var(--panel2)}
+  .trabajo .medio.audio audio{width:100%}
+  .trabajo .info{padding:10px 12px 12px}
+  .trabajo .tipo{font-size:12px;font-weight:700;color:var(--dorado);text-transform:uppercase;letter-spacing:.06em}
+  .trabajo h3{font-size:16px;margin:3px 0 0}
+  .trabajo p{margin:2px 0 0;color:var(--suave);font-size:14px}
+  .desliza{color:var(--suave);font-size:14px;margin:6px 0 0}
+  .flechas{display:none;gap:8px;justify-content:flex-end;margin-top:8px}
+  .flecha{width:46px;height:46px;border-radius:50%;border:1.5px solid var(--cacao);background:transparent;color:var(--crema);
+    font-size:20px;cursor:pointer}
+  @media (hover:hover) and (pointer:fine){ .flechas{display:flex} .desliza{display:none} }
   .vacio{background:var(--panel);border:1px dashed var(--cacao);border-radius:16px;padding:18px;color:var(--suave);margin-top:14px}
 
   /* Preguntas */
@@ -109,173 +112,124 @@
   details[open] summary:after{content:"–"}
   details p{padding:0 16px 14px;margin:0;color:var(--suave)}
 
-  /* Clientes / WhatsApp */
-  .clientes{background:linear-gradient(180deg,#1b140d,var(--bg))}
-  .wa-lista{list-style:none;padding:0;margin:18px 0}
-  .wa-lista li{padding:10px 0 10px 34px;position:relative;border-bottom:1px solid var(--linea)}
-  .wa-lista li:before{content:"✔";position:absolute;left:4px;top:9px;color:var(--verde);font-weight:900}
-  .acepto{display:flex;gap:12px;align-items:flex-start;background:var(--panel);border:1.5px solid var(--linea);
-    border-radius:14px;padding:16px;margin:18px 0 12px;cursor:pointer}
+  /* 4 · Términos y WhatsApp */
+  .cierre{background:linear-gradient(180deg,#1b140d,var(--bg))}
+  .caja-terminos{background:var(--panel);border:1px solid var(--linea);border-radius:20px;padding:20px 18px;margin-top:18px}
+  .precio{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 16px}
+  .precio div{flex:1 1 140px;background:var(--panel2);border:1px solid var(--linea);border-radius:14px;padding:12px 14px}
+  .precio small{display:block;color:var(--suave);font-size:13.5px}
+  .precio b{font-size:24px;color:var(--dorado)}
+  .terminos{counter-reset:t;list-style:none;padding:0;margin:0}
+  .terminos li{counter-increment:t;position:relative;padding:10px 0 10px 40px;border-bottom:1px solid var(--linea)}
+  .terminos li:last-child{border-bottom:0}
+  .terminos li:before{content:counter(t);position:absolute;left:0;top:10px;width:26px;height:26px;border-radius:8px;
+    background:var(--espresso);color:var(--crema);display:grid;place-items:center;font-weight:800;font-size:14px}
+  .wa-caja{margin-top:22px;padding-top:20px;border-top:1px solid var(--linea)}
+  .wa-lista{list-style:none;padding:0;margin:12px 0 16px}
+  .wa-lista li{padding:8px 0 8px 32px;position:relative}
+  .wa-lista li:before{content:"✔";position:absolute;left:4px;top:7px;color:var(--verde);font-weight:900}
+  .acepto{display:flex;gap:12px;align-items:flex-start;background:var(--panel2);border:1.5px solid var(--linea);
+    border-radius:14px;padding:16px;margin:0 0 12px;cursor:pointer}
   .acepto input{width:26px;height:26px;flex:0 0 26px;margin:0;accent-color:var(--dorado)}
   .acepto.alerta{border-color:var(--dorado);box-shadow:0 0 0 4px rgba(216,156,61,.25)}
   .aviso{min-height:22px;color:var(--dorado);font-weight:650;font-size:15px;margin:0 0 10px}
-  .otros{margin-top:26px;padding-top:18px;border-top:1px solid var(--linea)}
 
   footer{padding:30px 0 50px;color:var(--suave);font-size:14px;border-top:1px solid var(--linea)}
-  @media (min-width:700px){ body{font-size:18px} section{padding:72px 0} }
+  @media (min-width:700px){ body{font-size:18px} section{padding:68px 0} }
 </style>
 </head>
 <body>
 
-<!-- ================= PORTADA ================= -->
-<header class="hero">
+<!-- ================= 1 · MI PRESENTACIÓN Y REDES SOCIALES ================= -->
+<header class="hero" id="inicio">
   <div class="wrap">
     <div class="marca"><span class="logo">MR</span> MR PRODUCCIONES</div>
     <p class="kicker">Producción musical cristiana a distancia</p>
     <h1>Tu canción producida, mezclada y masterizada en <span class="oro">6 días</span>.</h1>
-    <p class="suave">Con fechas claras desde el primer día: sabes cuándo recibes la música, cuándo me mandas tu voz, cuándo te entrego la canción final y cuándo pagas cada mitad.</p>
-    <ul class="chips">
-      <li>🎙️ Grabas con tu celular</li>
-      <li>📅 Cada paso con fecha</li>
-      <li>🔁 Hasta 4 revisiones</li>
-      <li>🎼 Derechos 100 % tuyos</li>
-    </ul>
-    <div class="botones">
-      <a class="btn btn-oro" href="#proceso" data-ev="VerProceso">Ver cómo trabajamos ↓</a>
-      <a class="btn btn-linea" href="#trabajos" data-ev="VerTrabajos">🎧 Escuchar trabajos</a>
+
+    <div class="presenta">
+      <div class="cabeza">
+        <!-- FOTO REAL: poner archivos/img/mateo.jpg (si no está, se ve el ícono) -->
+        <div class="avatar" id="avatar">🎧</div>
+        <div><h2>Hola, soy Mateo</h2><p class="rol">Productor musical · MR Producciones</p></div>
+      </div>
+      <p>Soy productor musical y cristiano. Estoy en la música desde los 8 años, empecé con la guitarra en la iglesia y hoy toco guitarra, piano, bajo y batería.</p>
+      <p>Trabajé 2 años como coproductor junto a mi mentor, un líder de mi iglesia, y hoy produzco con mi propia marca. <b>La producción, la mezcla y el mastering de tu canción los hago yo</b>: hay una persona real detrás, que escucha lo que buscas.</p>
+      <p class="suave" style="margin:0">Si no tienes la letra terminada, la armamos juntos sin costo extra.</p>
+      <ul class="chips">
+        <li>🎙️ Grabas con tu celular</li>
+        <li>📅 Cada paso con fecha</li>
+        <li>🎬 Video lyric incluido</li>
+        <li>🎼 Derechos 100 % tuyos</li>
+      </ul>
+      <div class="redes">
+        <a class="btn btn-linea" href="https://www.instagram.com/mr_produccion/" data-ev="Instagram">📸 Instagram</a>
+        <a class="btn btn-linea" id="btnFb" href="https://www.facebook.com/" data-ev="Facebook">👍 Facebook</a>
+      </div>
     </div>
   </div>
 </header>
 
-<!-- ================= VIDEO (se muestra solo cuando hay archivo) ================= -->
-<section id="video" hidden>
+<!-- ================= 2 · INFORMACIÓN DEL PLAN DE ACCIÓN (video) ================= -->
+<section id="plan">
   <div class="wrap">
-    <p class="kicker">Antes de empezar</p>
-    <h2>Mira cómo trabajamos</h2>
-    <p class="suave">En este video te explico las condiciones paso a paso. Abajo también las tienes por escrito.</p>
-    <div class="video-caja">
-      <video id="videoTerminos" controls playsinline preload="none"></video>
-    </div>
-  </div>
-</section>
+    <p class="kicker">Plan de acción</p>
+    <h2>Así trabajamos tu canción, día por día</h2>
+    <p class="suave">Mira el video y, debajo, tienes cada paso por escrito. Todo cuenta desde el día en que recibo tu anticipo.</p>
 
-<!-- ================= PROCESO ================= -->
-<section id="proceso">
-  <div class="wrap">
-    <p class="kicker">El proceso</p>
-    <h2>De tu idea a tu canción terminada, día por día</h2>
-    <p class="suave">Todo cuenta desde el día en que recibo tu anticipo. Nada queda «para cuando se pueda».</p>
+    <div class="video-caja" id="videoCaja">
+      <div class="video-pronto" id="videoPronto">
+        <span style="font-size:34px">🎬</span>
+        <b>El video del plan de acción llega muy pronto</b>
+        <span>Mientras tanto, aquí abajo tienes cada paso con su fecha.</span>
+      </div>
+    </div>
 
     <ol class="crono">
-      <li>
-        <div class="dia"><small>Día</small><b>0</b></div>
+      <li><div class="dia"><small>Día</small><b>0</b></div>
         <div class="paso"><span class="quien q-tu">Tú</span>
           <h3>Envías el anticipo de USD 74,90</h3>
-          <p>Es la mitad del total (USD 149,80). Con eso reservo tu lugar y empieza el cronograma.</p></div>
-      </li>
-      <li>
-        <div class="dia"><small>Día</small><b>2</b></div>
+          <p>Es la mitad del total (USD 149,80). Con eso reservo tu lugar y empieza el cronograma.</p></div></li>
+      <li><div class="dia"><small>Día</small><b>2</b></div>
         <div class="paso"><span class="quien q-yo">Yo</span>
           <h3>Te presento la música lista y premezclada</h3>
-          <p>Escuchas la pista de tu canción ya armada, para que la revises con calma.</p></div>
-      </li>
-      <li>
-        <div class="dia"><small>Cambios</small><b>1</b></div>
+          <p>Escuchas la pista de tu canción ya armada, para que la revises con calma.</p></div></li>
+      <li><div class="dia"><small>Cambios</small><b>1</b></div>
         <div class="paso"><span class="quien q-yo">Yo</span>
           <h3>Hasta 4 revisiones, cada una en 1 día</h3>
-          <p>Si quieres cambiar algo, me lo dices y en un día lo tienes resuelto.</p></div>
-      </li>
-      <li>
-        <div class="dia"><small>Día</small><b>4</b></div>
+          <p>Si quieres cambiar algo, me lo dices y en un día lo tienes resuelto.</p></div></li>
+      <li><div class="dia"><small>Día</small><b>4</b></div>
         <div class="paso"><span class="quien q-tu">Tú</span>
           <h3>Me envías tu voz grabada</h3>
-          <p>Puedes grabarla con tu celular o en un estudio de tu ciudad. Te doy las indicaciones para que salga bien.</p></div>
-      </li>
-      <li>
-        <div class="dia"><small>Día</small><b>6</b></div>
+          <p>Con tu celular o en un estudio de tu ciudad. Te doy las indicaciones para que salga bien.</p></div></li>
+      <li><div class="dia"><small>Día</small><b>6</b></div>
         <div class="paso"><span class="quien q-yo">Yo</span>
           <h3>Te entrego la mezcla y el mastering final</h3>
-          <p>Tu voz y la música unidas, sonando lista para compartir.</p></div>
-      </li>
-      <li>
-        <div class="dia"><small>Día</small><b>7</b></div>
+          <p>Tu voz y la música unidas, sonando lista para compartir.</p></div></li>
+      <li><div class="dia"><small>Día</small><b>7</b></div>
         <div class="paso"><span class="quien q-yo">Yo</span> <span class="quien q-tu">Tú</span>
           <h3>Te entrego el video lyric y pagas la otra mitad</h3>
-          <p>Recibes tu video lyric y, con todo aprobado, abonas los USD 74,90 restantes.</p></div>
-      </li>
+          <p>Recibes tu video lyric y, con todo aprobado, abonas los USD 74,90 restantes.</p></div></li>
     </ol>
   </div>
 </section>
 
-<!-- ================= QUIÉN ESTÁ DETRÁS ================= -->
-<section id="quien">
-  <div class="wrap">
-    <p class="kicker">Quién está detrás</p>
-    <h2>Hola, soy Mateo</h2>
-    <!-- FOTO REAL: poner archivos/img/mateo.jpg y borrar el atributo hidden -->
-    <img id="fotoMateo" src="archivos/img/mateo.jpg" alt="Mateo en su estudio" width="720" height="720" loading="lazy" hidden
-         style="border-radius:18px;margin:6px 0 18px;aspect-ratio:1/1;object-fit:cover">
-    <p>Soy productor musical y cristiano. Estoy en la música desde los 8 años, empecé con la guitarra en la iglesia y hoy toco guitarra, piano, bajo y batería.</p>
-    <p>Trabajé 2 años como coproductor junto a mi mentor, un líder de mi iglesia, y hoy produzco con mi propia marca. <b>La producción, la mezcla y el mastering de tu canción los hago yo</b>: hay una persona real detrás, que escucha lo que buscas.</p>
-    <p class="suave">Si no tienes la letra terminada, la armamos juntos sin costo extra.</p>
-  </div>
-</section>
-
-<!-- ================= QUÉ RECIBES ================= -->
-<section id="incluye">
-  <div class="wrap">
-    <p class="kicker">Qué recibes</p>
-    <h2>Tu canción, lista para compartir</h2>
-    <div class="grid">
-      <div class="card"><div class="ico">🎵</div><h3>Canción mezclada y masterizada</h3><p>Tu voz y la música, con el sonido terminado.</p></div>
-      <div class="card"><div class="ico">🎹</div><h3>Pista sin voz</h3><p>Mezclada y masterizada, para cantar en vivo o en la iglesia.</p></div>
-      <div class="card"><div class="ico">🎬</div><h3>Video lyric</h3><p>Tu canción con la letra en pantalla, lista para subir a tus redes.</p></div>
-      <div class="card"><div class="ico">🔁</div><h3>Hasta 4 revisiones</h3><p>Cada cambio, resuelto en 1 día.</p></div>
-      <div class="card"><div class="ico">🎼</div><h3>100 % tuya</h3><p>Los derechos son del artista. Te asesoro para subirla a Spotify y otras plataformas.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= TÉRMINOS Y CONDICIONES ================= -->
-<section id="terminos">
-  <div class="wrap">
-    <p class="kicker">Términos y condiciones</p>
-    <h2>Así trabajamos en MR Producciones</h2>
-    <p class="suave">Léelos antes de escribirme: son los mismos para todos los artistas.</p>
-
-    <div class="precio">
-      <div><small>Total de tu canción</small><b>USD 149,80</b></div>
-      <div><small>Anticipo para empezar</small><b>USD 74,90</b></div>
-      <div><small>Segunda mitad, al día 7</small><b>USD 74,90</b></div>
-    </div>
-
-    <ol class="terminos">
-      <li>El servicio cuesta <b>USD 149,80</b> en total e incluye producción, mezcla, mastering, la pista sin voz y el <b>video lyric</b>. Se paga en dos mitades de <b>USD 74,90</b>.</li>
-      <li>Una vez recibido el anticipo de <b>USD 74,90</b>, en <b>2 días</b> la parte musical estará lista y premezclada.</li>
-      <li>Después de presentarla, tienes <b>hasta 4 revisiones</b>. Cada cambio se hace en el lapso de <b>1 día</b>.</li>
-      <li>Tu voz debe llegarme a más tardar el <b>4.º día</b> desde que enviaste el anticipo.</li>
-      <li>Una vez recibida y aprobada tu voz, la <b>mezcla y el mastering final</b> se entregan el <b>6.º día</b> desde el anticipo.</li>
-      <li>El <b>video lyric</b> se entrega el <b>7.º día</b> desde el anticipo.</li>
-      <li>Aprobado todo, la <b>segunda mitad (USD 74,90)</b> se abona el <b>7.º día</b> desde el anticipo.</li>
-      <li>Una revisión es un cambio sobre la canción ya trabajada. Desde la <b>quinta</b>, cada cambio cuesta <b>USD 25</b>, y siempre te aviso antes.</li>
-      <li>Los pagos se hacen por <b>Western Union</b> y se confirman enviando el comprobante por WhatsApp.</li>
-      <li>Los derechos de la canción son <b>100 % del artista</b>.</li>
-    </ol>
-  </div>
-</section>
-
-<!-- ================= TRABAJOS (contenido libre) ================= -->
+<!-- ================= 3 · TRABAJOS REALIZADOS ================= -->
 <section id="trabajos">
   <div class="wrap">
-    <p class="kicker">Escucha gratis</p>
-    <h2>Trabajos, pistas y demos</h2>
-    <p class="suave">Escucha cómo suenan canciones reales antes de decidir. Todo libre y gratis.</p>
-    <div class="filtros" id="filtros" role="group" aria-label="Filtrar trabajos"></div>
-    <div id="listaTrabajos"></div>
+    <p class="kicker">Trabajos realizados</p>
+    <h2>Escucha cómo suenan</h2>
+    <p class="suave">Canciones, pistas y demos reales. Libres y gratis.</p>
+    <div class="carrusel" id="carrusel" aria-label="Trabajos realizados"></div>
+    <p class="desliza" id="desliza">Desliza para ver más →</p>
+    <div class="flechas" id="flechas">
+      <button type="button" class="flecha" data-dir="-1" aria-label="Anterior">←</button>
+      <button type="button" class="flecha" data-dir="1" aria-label="Siguiente">→</button>
+    </div>
   </div>
 </section>
 
-<!-- ================= PREGUNTAS ================= -->
+<!-- ================= PREGUNTAS FRECUENTES ================= -->
 <section id="preguntas">
   <div class="wrap">
     <p class="kicker">Preguntas frecuentes</p>
@@ -295,35 +249,52 @@
   </div>
 </section>
 
-<!-- ================= CLIENTES: WHATSAPP ================= -->
-<section id="clientes" class="clientes">
+<!-- ================= 4 · TÉRMINOS Y CONDICIONES · WHATSAPP SOLO PARA CLIENTES ================= -->
+<section id="terminos" class="cierre">
   <div class="wrap">
-    <p class="kicker">Solo para clientes</p>
-    <h2>¿Listo para empezar tu canción?</h2>
-    <p class="suave">El WhatsApp de MR Producciones es para artistas que ya leyeron las condiciones y quieren empezar. Ahí organizamos todo:</p>
-    <ul class="wa-lista">
-      <li>Las fechas y el plan de acción de tu canción</li>
-      <li>Los términos y condiciones</li>
-      <li>El comprobante del primer pago</li>
-      <li>Los avances y los archivos de música, video y voz</li>
-      <li>El pago final, con su comprobante</li>
-    </ul>
+    <p class="kicker">Términos y condiciones</p>
+    <h2>Así trabajamos en MR Producciones</h2>
+    <p class="suave">Son los mismos para todos los artistas. Léelos antes de escribirme.</p>
 
-    <label class="acepto" id="caja-acepto">
-      <input type="checkbox" id="acepto">
-      <span>Leí y acepto los <a href="#terminos">términos y condiciones</a> de MR Producciones.</span>
-    </label>
-    <p class="aviso" id="aviso" aria-live="polite"></p>
-    <a class="btn btn-wa" id="btnWa" href="#clientes">
-      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
-      Empezar mi canción por WhatsApp
-    </a>
+    <div class="caja-terminos">
+      <div class="precio">
+        <div><small>Total</small><b>USD 149,80</b></div>
+        <div><small>Anticipo (día 0)</small><b>USD 74,90</b></div>
+        <div><small>Segunda mitad (día 7)</small><b>USD 74,90</b></div>
+      </div>
+      <ol class="terminos">
+        <li>El servicio cuesta <b>USD 149,80</b> e incluye producción, mezcla, mastering, la pista sin voz y el <b>video lyric</b>. Se paga en dos mitades de <b>USD 74,90</b>.</li>
+        <li>Una vez recibido el anticipo, en <b>2 días</b> la parte musical estará lista y premezclada.</li>
+        <li>Después de presentarla, tienes <b>hasta 4 revisiones</b>. Cada cambio se hace en el lapso de <b>1 día</b>.</li>
+        <li>Tu voz debe llegarme a más tardar el <b>4.º día</b> desde que enviaste el anticipo.</li>
+        <li>Una vez recibida y aprobada tu voz, la <b>mezcla y el mastering final</b> se entregan el <b>6.º día</b> desde el anticipo.</li>
+        <li>El <b>video lyric</b> se entrega el <b>7.º día</b> desde el anticipo.</li>
+        <li>Aprobado todo, la <b>segunda mitad (USD 74,90)</b> se abona el <b>7.º día</b> desde el anticipo.</li>
+        <li>Desde la <b>quinta</b> revisión, cada cambio cuesta <b>USD 25</b>, y siempre te aviso antes.</li>
+        <li>Los pagos se hacen por <b>Western Union</b> y se confirman enviando el comprobante por WhatsApp.</li>
+        <li>Los derechos de la canción son <b>100 % del artista</b>.</li>
+      </ol>
 
-    <div class="otros">
-      <p><b>¿Todavía no quieres empezar?</b> Conóceme mejor en mis redes:</p>
-      <div class="botones">
-        <a class="btn btn-linea" href="https://www.instagram.com/mr_produccion/" data-ev="Instagram">Instagram @mr_produccion</a>
-        <a class="btn btn-linea" id="btnFb" href="https://www.facebook.com/" data-ev="Facebook">Facebook Mrproducciones</a>
+      <div class="wa-caja" id="clientes">
+        <p class="kicker" style="color:var(--verde)">WhatsApp Business · solo para clientes</p>
+        <h3>¿Listo para empezar tu canción?</h3>
+        <p class="suave" style="margin:0">El WhatsApp es para artistas que ya aceptaron estas condiciones. Ahí organizamos:</p>
+        <ul class="wa-lista">
+          <li>Las fechas y el plan de acción de tu canción</li>
+          <li>Los términos y condiciones</li>
+          <li>El comprobante del primer pago</li>
+          <li>Los avances y los archivos de música, video y voz</li>
+          <li>El pago final, con su comprobante</li>
+        </ul>
+        <label class="acepto" id="caja-acepto">
+          <input type="checkbox" id="acepto">
+          <span>Leí y acepto los términos y condiciones de MR Producciones.</span>
+        </label>
+        <p class="aviso" id="aviso" aria-live="polite"></p>
+        <a class="btn btn-wa" id="btnWa" href="#clientes">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+          Empezar mi canción por WhatsApp
+        </a>
       </div>
     </div>
   </div>
@@ -343,21 +314,22 @@
 var CONFIG = {
   whatsapp: "5493413459128",
   mensajeWhatsapp: "Hola, leí y acepto los términos y condiciones de MR Producciones y quiero empezar mi canción con el anticipo de USD 74,90.",
-  facebook: "",            // link de la página de Facebook Mrproducciones (si queda vacío, va a facebook.com)
-  video: "",               // ej.: "archivos/video/terminos.mp4"  (vacío = la sección del video no se muestra)
-  videoPortada: "",        // ej.: "archivos/video/terminos-portada.jpg"
+  facebook: "",            // link de la página de Facebook Mrproducciones (vacío = facebook.com)
+  foto: "archivos/img/mateo.jpg", // tu foto real (si no existe, se ve el ícono)
+  video: "",               // video del plan de acción, ej.: "archivos/video/plan-de-accion.mp4"
+  videoPortada: "",        // ej.: "archivos/video/plan-de-accion.jpg"
   pixelMeta: "",           // ID del píxel de MR Producciones (vacío = no se carga)
-  clarity: ""              // ID del proyecto de Microsoft Clarity (vacío = no se carga)
+  clarity: ""              // ID de Microsoft Clarity (vacío = no se carga)
 };
 
-/* Trabajos: tipo = "Canción", "Pista" o "Demo". Sin archivo, la tarjeta no aparece. */
+/* Trabajos realizados (carrusel). archivo = video .mp4 (vertical) o audio .mp3.
+   tipo = "Canción", "Pista" o "Demo". Sin archivo, la tarjeta no aparece. */
 var TRABAJOS = [
-  { tipo:"Canción", titulo:"Estoy agradecido", artista:"José",     nota:"Producción, mezcla y mastering.", archivo:"" },
-  { tipo:"Canción", titulo:"Buen Pastor",      artista:"Gleibis",  nota:"",                               archivo:"" },
-  { tipo:"Canción", titulo:"",                 artista:"Markos",   nota:"",                               archivo:"" },
-  { tipo:"Canción", titulo:"",                 artista:"Franco",   nota:"",                               archivo:"" },
-  { tipo:"Pista",   titulo:"Salmo 23",         artista:"",         nota:"Pista sin voz.",                 archivo:"" }
-  // { tipo:"Demo", titulo:"Demo piano 70 BPM", artista:"", nota:"", archivo:"archivos/audio/demo-piano.mp3" },
+  { tipo:"Canción", titulo:"Estoy agradecido", artista:"José",    archivo:"", portada:"" },
+  { tipo:"Canción", titulo:"Buen Pastor",      artista:"Gleibis", archivo:"", portada:"" },
+  { tipo:"Canción", titulo:"",                 artista:"Markos",  archivo:"", portada:"" },
+  { tipo:"Canción", titulo:"",                 artista:"Franco",  archivo:"", portada:"" },
+  { tipo:"Pista",   titulo:"Salmo 23",         artista:"",        archivo:"", portada:"" }
 ];
 </script>
 
@@ -381,8 +353,8 @@ var TRABAJOS = [
       t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script",CONFIG.clarity);
     }
   }
-  /* Se carga después de mostrar la página: que nada externo frene la primera pantalla
-     (en Piano Juntos la app de Instagram/Facebook en Android tardaba y a veces se cerraba). */
+  /* Después de mostrar la página: que nada externo frene la primera pantalla
+     (en Piano Juntos el navegador de Instagram/Facebook en Android tardaba y a veces se cerraba). */
   if(document.readyState==="complete") setTimeout(cargarMedicion,1200);
   else window.addEventListener("load",function(){ setTimeout(cargarMedicion,1200); });
 
@@ -391,68 +363,58 @@ var TRABAJOS = [
     if(a) ev(a.getAttribute("data-ev"));
   });
 
-  /* ---------- video ---------- */
-  if(CONFIG.video){
-    var v=document.getElementById("videoTerminos");
-    v.src=CONFIG.video; if(CONFIG.videoPortada) v.poster=CONFIG.videoPortada;
-    document.getElementById("video").hidden=false;
-    v.addEventListener("play",function(){ ev("PlayVideoTerminos"); },{once:true});
+  function esc(s){ return String(s||"").replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
+
+  /* ---------- foto ---------- */
+  if(CONFIG.foto){
+    var im=new Image();
+    im.onload=function(){ var av=document.getElementById("avatar"); av.textContent=""; im.alt="Mateo"; av.appendChild(im); };
+    im.src=CONFIG.foto;
   }
-
-  /* ---------- foto real ---------- */
-  var foto=document.getElementById("fotoMateo");
-  var prueba=new Image();
-  prueba.onload=function(){ foto.hidden=false; };
-  prueba.src=foto.getAttribute("src");
-
-  /* ---------- Facebook ---------- */
   if(CONFIG.facebook) document.getElementById("btnFb").href=CONFIG.facebook;
 
-  /* ---------- trabajos ---------- */
-  var lista=document.getElementById("listaTrabajos"), filtros=document.getElementById("filtros");
-  var conArchivo=TRABAJOS.filter(function(t){ return t.archivo; });
-  function esc(s){ return String(s||"").replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
-  function pintar(tipo){
-    var items=conArchivo.filter(function(t){ return tipo==="Todo"||t.tipo===tipo; });
-    if(!items.length){
-      lista.innerHTML='<div class="vacio">🎧 Muy pronto subo aquí canciones, pistas y demos para que escuches. Mientras tanto, puedes escuchar mis trabajos en <a href="https://www.instagram.com/mr_produccion/">Instagram</a>.</div>';
-      return;
-    }
-    lista.innerHTML=items.map(function(t){
-      var titulo=t.titulo||("Canción de "+t.artista);
-      var sub=[t.artista&&t.titulo?t.artista:"", t.nota].filter(Boolean).join(" · ");
-      return '<div class="pista"><div class="tipo">'+esc(t.tipo)+'</div><h3>'+esc(titulo)+'</h3>'+
-        (sub?'<p>'+esc(sub)+'</p>':'')+
-        '<audio controls preload="none" src="'+esc(t.archivo)+'" data-titulo="'+esc(titulo)+'"></audio></div>';
-    }).join("");
+  /* ---------- video del plan de acción ---------- */
+  if(CONFIG.video){
+    var caja=document.getElementById("videoCaja");
+    caja.innerHTML='<video id="videoPlan" controls playsinline preload="none"'+
+      (CONFIG.videoPortada?' poster="'+esc(CONFIG.videoPortada)+'"':'')+' src="'+esc(CONFIG.video)+'"></video>';
+    document.getElementById("videoPlan").addEventListener("play",function(){ ev("PlayVideoPlan"); },{once:true});
   }
-  var tipos=["Todo"].concat(["Canción","Pista","Demo"].filter(function(tp){
-    return conArchivo.some(function(t){ return t.tipo===tp; });
-  }));
-  if(tipos.length>2){
-    filtros.innerHTML=tipos.map(function(tp,i){
-      var nombre={Todo:"Todo","Canción":"Canciones",Pista:"Pistas",Demo:"Demos"}[tp];
-      return '<button type="button" class="filtro" data-tipo="'+tp+'" aria-pressed="'+(i===0)+'">'+nombre+'</button>';
+
+  /* ---------- trabajos realizados ---------- */
+  var car=document.getElementById("carrusel");
+  var items=TRABAJOS.filter(function(t){ return t.archivo; });
+  if(!items.length){
+    car.outerHTML='<div class="vacio">🎧 Muy pronto subo aquí canciones, pistas y demos para que escuches. Mientras tanto, puedes ver mis trabajos en <a href="https://www.instagram.com/mr_produccion/">Instagram</a>.</div>';
+    document.getElementById("desliza").hidden=true; document.getElementById("flechas").hidden=true;
+  } else {
+    car.innerHTML=items.map(function(t){
+      var titulo=t.titulo||("Canción de "+t.artista);
+      var esAudio=/\.(mp3|m4a|wav|aac|ogg)$/i.test(t.archivo);
+      var medio=esAudio
+        ? '<div class="medio audio"'+(t.portada?' style="background:url('+esc(t.portada)+') center/cover"':'')+'><audio controls preload="none" src="'+esc(t.archivo)+'" data-titulo="'+esc(titulo)+'"></audio></div>'
+        : '<div class="medio"><video controls playsinline preload="none"'+(t.portada?' poster="'+esc(t.portada)+'"':'')+' src="'+esc(t.archivo)+'" data-titulo="'+esc(titulo)+'"></video></div>';
+      return '<article class="trabajo">'+medio+'<div class="info"><div class="tipo">'+esc(t.tipo)+'</div><h3>'+esc(titulo)+'</h3>'+
+        (t.artista&&t.titulo?'<p>'+esc(t.artista)+'</p>':'')+'</div></article>';
     }).join("");
-    filtros.addEventListener("click",function(e){
-      var b=e.target.closest(".filtro"); if(!b) return;
-      [].forEach.call(filtros.children,function(x){ x.setAttribute("aria-pressed", x===b); });
-      pintar(b.getAttribute("data-tipo"));
+    if(items.length<2){ document.getElementById("desliza").hidden=true; document.getElementById("flechas").hidden=true; }
+    /* que suene uno solo a la vez */
+    car.addEventListener("play",function(e){
+      [].forEach.call(car.querySelectorAll("video,audio"),function(m){ if(m!==e.target) m.pause(); });
+      ev("PlayTrabajo",{titulo:e.target.getAttribute("data-titulo")});
+    },true);
+    document.getElementById("flechas").addEventListener("click",function(e){
+      var b=e.target.closest(".flecha"); if(!b) return;
+      car.scrollBy({left:(+b.getAttribute("data-dir"))*car.clientWidth*0.8,behavior:"smooth"});
     });
   }
-  pintar("Todo");
-  /* que suene uno solo a la vez */
-  lista.addEventListener("play",function(e){
-    [].forEach.call(lista.querySelectorAll("audio"),function(a){ if(a!==e.target) a.pause(); });
-    ev("PlayTrabajo",{titulo:e.target.getAttribute("data-titulo")});
-  },true);
 
   /* ---------- WhatsApp solo con términos aceptados ---------- */
-  var chk=document.getElementById("acepto"), caja=document.getElementById("caja-acepto"),
+  var chk=document.getElementById("acepto"), cajaA=document.getElementById("caja-acepto"),
       aviso=document.getElementById("aviso"), wa=document.getElementById("btnWa");
   var urlWa="https://wa.me/"+CONFIG.whatsapp+"?text="+encodeURIComponent(CONFIG.mensajeWhatsapp);
   function actualizar(){
-    if(chk.checked){ wa.href=urlWa; caja.classList.remove("alerta"); aviso.textContent=""; }
+    if(chk.checked){ wa.href=urlWa; cajaA.classList.remove("alerta"); aviso.textContent=""; }
     else { wa.href="#clientes"; }
   }
   chk.addEventListener("change",function(){ actualizar(); if(chk.checked) ev("AceptaTerminos"); });
@@ -460,9 +422,9 @@ var TRABAJOS = [
   wa.addEventListener("click",function(e){
     if(!chk.checked){
       e.preventDefault();
-      caja.classList.add("alerta");
-      aviso.textContent="Marca la casilla de arriba para confirmar que leíste los términos.";
-      caja.scrollIntoView({behavior:"smooth",block:"center"});
+      cajaA.classList.add("alerta");
+      aviso.textContent="Marca la casilla de arriba para confirmar que aceptas los términos.";
+      cajaA.scrollIntoView({behavior:"smooth",block:"center"});
       ev("WhatsappSinAceptar");
       return;
     }
