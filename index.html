@@ -90,9 +90,10 @@
     border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
   .trabajo .medio{aspect-ratio:9/16;background:#000}
   .trabajo .medio video{width:100%;height:100%;object-fit:cover}
-  .trabajo .medio.audio{display:flex;align-items:flex-end;padding:12px;
-    background:radial-gradient(80% 60% at 50% 35%,rgba(216,156,61,.25),transparent 70%),var(--panel2)}
-  .trabajo .medio.audio audio{width:100%}
+  .carrusel{align-items:flex-start}
+  .trabajo.es-audio{flex-basis:min(82vw,300px)}
+  .trabajo .medio.audio{aspect-ratio:auto;display:block;padding:0 10px 10px;background:transparent}
+  .trabajo .medio.audio audio{display:block;width:100%;height:40px}
   .trabajo .info{padding:10px 12px 12px}
   .trabajo .tipo{font-size:12px;font-weight:700;color:var(--dorado);text-transform:uppercase;letter-spacing:.06em}
   .trabajo h3{font-size:16px;margin:3px 0 0}
@@ -399,6 +400,8 @@ var TRABAJOS = [
       var medio=esAudio
         ? '<div class="medio audio"'+(t.portada?' style="background:url('+esc(t.portada)+') center/cover"':'')+'><audio controls preload="none" src="'+esc(t.archivo)+'" data-titulo="'+esc(titulo)+'"></audio></div>'
         : '<div class="medio"><video controls playsinline preload="none"'+(t.portada?' poster="'+esc(t.portada)+'"':'')+' src="'+esc(t.archivo)+'" data-titulo="'+esc(titulo)+'"></video></div>';
+      if(esAudio) return '<article class="trabajo es-audio"><div class="info">'+'<div class="tipo">'+esc(t.tipo)+'</div><h3>'+esc(titulo)+'</h3>'+
+        (t.artista&&t.titulo?'<p>'+esc(t.artista)+'</p>':'')+'</div>'+medio+'</article>';
       return '<article class="trabajo">'+medio+'<div class="info"><div class="tipo">'+esc(t.tipo)+'</div><h3>'+esc(titulo)+'</h3>'+
         (t.artista&&t.titulo?'<p>'+esc(t.artista)+'</p>':'')+'</div></article>';
     }).join("");
