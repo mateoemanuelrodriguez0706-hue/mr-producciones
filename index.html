@@ -312,7 +312,7 @@
    CONFIGURACIÓN — lo único que hay que tocar para sumar contenido
    ===================================================================== */
 var CONFIG = {
-  whatsapp: "5493413459128",
+  whatsapp: "ODIxOTU0MzE0Mzk0NQ==", // número codificado: no aparece escrito en la página
   mensajeWhatsapp: "Hola, leí y acepto los términos y condiciones de MR Producciones y quiero empezar mi canción con el anticipo de USD 74,90.",
   facebook: "",            // link de la página de Facebook Mrproducciones (vacío = facebook.com)
   foto: "archivos/img/mateo.jpg", // tu foto real (si no existe, se ve el ícono)
@@ -412,10 +412,15 @@ var TRABAJOS = [
   /* ---------- WhatsApp solo con términos aceptados ---------- */
   var chk=document.getElementById("acepto"), cajaA=document.getElementById("caja-acepto"),
       aviso=document.getElementById("aviso"), wa=document.getElementById("btnWa");
-  var urlWa="https://wa.me/"+CONFIG.whatsapp+"?text="+encodeURIComponent(CONFIG.mensajeWhatsapp);
+  /* El número solo se arma en el momento del clic y con la casilla marcada:
+     no queda en ningún link de la página. */
+  function urlWa(){
+    var n=atob(CONFIG.whatsapp).split("").reverse().join("");
+    return "https://wa.me/"+n+"?text="+encodeURIComponent(CONFIG.mensajeWhatsapp);
+  }
   function actualizar(){
-    if(chk.checked){ wa.href=urlWa; cajaA.classList.remove("alerta"); aviso.textContent=""; }
-    else { wa.href="#clientes"; }
+    wa.href="#clientes";
+    if(chk.checked){ cajaA.classList.remove("alerta"); aviso.textContent=""; }
   }
   chk.addEventListener("change",function(){ actualizar(); if(chk.checked) ev("AceptaTerminos"); });
   /* El botón siempre responde: si falta aceptar, lo dice (regla «si parece botón, que funcione»). */
@@ -428,8 +433,11 @@ var TRABAJOS = [
       ev("WhatsappSinAceptar");
       return;
     }
+    e.preventDefault();
     ev("ClicWhatsapp");
     try{ if(window.fbq) window.fbq("track","Contact"); }catch(err){}
+    var destino=urlWa();
+    setTimeout(function(){ window.location.href=destino; }, 150);
   });
   actualizar();
 })();
