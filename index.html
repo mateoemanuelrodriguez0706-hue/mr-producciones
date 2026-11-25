@@ -8,6 +8,22 @@
 <meta name="description" content="Mándame tu letra y una nota de voz: produzco, mezclo y masterizo tu canción cristiana a distancia. USD 149,80 con video lyric de regalo.">
 <meta name="theme-color" content="#121212">
 <link rel="icon" href="data:,">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1355082489975079');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt=""
+src="https://www.facebook.com/tr?id=1355082489975079&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
 <meta property="og:title" content="MR Producciones · Tu canción en 6 días">
 <meta property="og:description" content="Producción, mezcla, mastering y video lyric a distancia para artistas cristianos. Empiezas con USD 74,90.">
 <style>
@@ -550,7 +566,7 @@ var CONFIG = {
   facebook: "https://www.facebook.com/profile.php?id=1151399854733359", // página Mrproducciones (vacío = el botón no aparece)
   video: "archivos/video/plan-de-accion.mp4",
   videoPortada: "archivos/video/plan-de-accion.jpg",
-  pixelMeta: "1355082489975079", // ID del píxel (vacío = no se carga)
+  pixelMeta: "1355082489975079", // referencia: el código del píxel está en el <head>
   clarity: "ziktkq1la8",   // ID de Microsoft Clarity (vacío = no se carga)
 
   /* DISPONIBILIDAD REAL — se actualiza a mano. Vacío = no se muestra nada. */
@@ -589,20 +605,24 @@ var TESTIMONIOS = [];
     try{ if(window.clarity) window.clarity("event", nombre); }catch(e){}
   }
   function evUna(nombre, datos){ if(yaMedido[nombre]) return; yaMedido[nombre]=1; ev(nombre, datos); }
+  /* Eventos estándar de Meta: sin datos personales. */
+  var estandarHecho={};
+  function estandar(nombre, datos, unaVez){
+    if(unaVez){ if(estandarHecho[nombre]) return; estandarHecho[nombre]=1; }
+    try{ if(window.fbq) window.fbq("track", nombre, datos||{}); }catch(e){}
+  }
+  var OFERTA={content_name:"Produccion musical - 40% OFF", content_category:"Produccion musical", value:149.80, currency:"USD"};
+  /* COMPRAS: los pagos son por Western Union, fuera de la web. Esta función NO se llama desde ningún botón.
+     Purchase solo debe registrarse con una compra confirmada (por ejemplo, cargándola en el Administrador de eventos). */
+  function registrarCompraConfirmada(valorUSD){ estandar("Purchase",{value:valorUSD, currency:"USD", content_name:OFERTA.content_name}); }
   function mandarErrores(){
     try{ while(window.__errores && __errores.length){ var m=__errores.shift(); if(window.clarity){ clarity("set","errorJS",m); clarity("event","ErrorJS"); } } }catch(e){}
   }
   function cargarMedicion(){
-    if(CONFIG.pixelMeta){
-      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;
-      s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");
-      fbq("init", CONFIG.pixelMeta); fbq("track","PageView");
-    }
     if(CONFIG.clarity){
       (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;
       t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script",CONFIG.clarity);
-      clarity("set","version_web","v4");
+      clarity("set","version_web","v5");
     }
     /* primeros segundos */
     evUna("Ve_hero");
@@ -628,7 +648,8 @@ var TESTIMONIOS = [];
   if("IntersectionObserver" in window){
     var vistas={};
     var ioS=new IntersectionObserver(function(es){ es.forEach(function(x){
-      if(x.isIntersecting && !vistas[x.target.id]){ vistas[x.target.id]=1; ev("Ve_"+x.target.id.replace(/-/g,"_")); }
+      if(x.isIntersecting && !vistas[x.target.id]){ vistas[x.target.id]=1; ev("Ve_"+x.target.id.replace(/-/g,"_"));
+        if(x.target.id==="oferta-completa") estandar("ViewContent", OFERTA, true); }
     }); },{threshold:.35});
     ["escuchar","te-pasa","como-te-ayudo","oferta-completa","plan","preguntas","reservar"].forEach(function(id){ if($(id)) ioS.observe($(id)); });
     var ioA=new IntersectionObserver(function(es){ es.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add("visto"); ioA.unobserve(x.target); } }); },{threshold:.15});
@@ -766,7 +787,7 @@ var TESTIMONIOS = [];
     a.addEventListener("click",function(e){
       e.preventDefault();
       ev("ClicWhatsappConsulta",{lugar:a.getAttribute("data-ev")});
-      try{ if(window.fbq) window.fbq("track","Contact",{content_name:"consulta"}); }catch(err){}
+      estandar("Contact",{content_name:"consulta"});
       setTimeout(function(){ window.location.href=urlConsulta; },150);
     });
   });
@@ -800,7 +821,8 @@ var TESTIMONIOS = [];
     evUna("InicioReserva");
     ev("ClicWhatsapp",{tengo:valor("tengo"),cuando:valor("cuando")});
     ev("ClicWhatsappReserva");
-    try{ if(window.fbq) window.fbq("track","Contact",{content_name:"reserva"}); }catch(err){}
+    estandar("Contact",{content_name:"reserva"});
+    estandar("Lead",{content_name:"Reserva por WhatsApp", value:149.80, currency:"USD"}, true);
     var destino=urlWa();
     setTimeout(function(){ window.location.href=destino; }, 150);
   });
