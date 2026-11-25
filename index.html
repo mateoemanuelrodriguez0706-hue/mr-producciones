@@ -68,6 +68,8 @@
   .secundario{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:48px;margin-top:4px;padding:0 12px;
     color:var(--crema);font-weight:720;text-decoration:none}
   .disponible{margin:10px 0 0;font-size:14.5px;color:var(--crema)}
+  .oferta .disponible{margin-top:8px;font-size:14px}
+  .oferta .incluye{line-height:1.4}
   .disponible:before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--verde);margin-right:7px;vertical-align:1px}
   .confianza{display:grid;grid-template-columns:1fr 1fr;gap:8px;list-style:none;padding:0;margin:14px 0 0}
   .confianza li{background:var(--panel);border:1px solid var(--linea);border-radius:12px;padding:9px 10px;font-size:13.5px;line-height:1.3;
@@ -225,7 +227,7 @@
     <p class="sub">Sin estudio y sin saber de música. Canción terminada en 6 días y video lyric el día 7.</p>
 
     <div class="oferta" id="oferta">
-      <span class="sello">40 % OFF</span>
+      <span class="sello" id="selloHero">40 % OFF</span>
       <p class="antes">Antes <s>USD 250</s></p>
       <p class="ahora">USD 149,80</p>
       <p class="incluye">Producción, mezcla, mastering, pista sin voz y <b class="oro">video lyric de regalo</b>.</p>
@@ -504,16 +506,17 @@
    ===================================================================== */
 var CONFIG = {
   whatsapp: "ODIxOTU0MzE0Mzk0NQ==", // número codificado: no aparece escrito en la página
-  facebook: "",            // link de la página de Facebook (vacío = el botón no aparece)
+  facebook: "https://www.facebook.com/profile.php?id=1151399854733359", // página Mrproducciones (vacío = el botón no aparece)
   video: "archivos/video/plan-de-accion.mp4",
   videoPortada: "archivos/video/plan-de-accion.jpg",
   pixelMeta: "1355082489975079", // ID del píxel (vacío = no se carga)
   clarity: "ziktkq1la8",   // ID de Microsoft Clarity (vacío = no se carga)
 
   /* DISPONIBILIDAD REAL — se actualiza a mano. Vacío = no se muestra nada. */
-  cuposLibres: "",         // ej.: "3" → «Quedan 3 lugares para producir este mes»
+  cuposMes: "10",          // capacidad real por mes → «Produzco un máximo de 10 canciones por mes…»
+  cuposLibres: "",         // opcional, lugares que quedan: ej. "3" → «Quedan 3 lugares para producir este mes»
   mesCupos: "",            // ej.: "diciembre"
-  promoHasta: ""           // ej.: "2026-12-15" → muestra la fecha y se oculta sola cuando pasa
+  promoHasta: "2026-12-01" // último día del 40 % OFF: se muestra la fecha y el aviso se oculta solo cuando pasa
 };
 
 /* Trabajos reales. archivo = audio .mp3 (o video .mp4). Sin archivo, no aparece. */
@@ -578,19 +581,27 @@ var TESTIMONIOS = [];
   } else { [].forEach.call(document.querySelectorAll(".aparece"),function(el){ el.classList.add("visto"); }); }
 
   /* ---------- disponibilidad y promo (solo datos reales cargados a mano) ---------- */
+  var txt="", corto="";
   if(CONFIG.cuposLibres){
-    var n=parseInt(CONFIG.cuposLibres,10), txt;
+    var n=parseInt(CONFIG.cuposLibres,10);
     txt = n>0 ? (n===1?"Queda 1 lugar":"Quedan "+n+" lugares")+" para producir"+(CONFIG.mesCupos?" en "+CONFIG.mesCupos:" este mes")
               : "Este mes ya no quedan lugares: escríbeme para reservar el próximo";
-    $("dispoHero").textContent=txt; $("dispoHero").hidden=false;
+  } else if(CONFIG.cuposMes){
+    txt="Produzco un máximo de "+CONFIG.cuposMes+" canciones por mes, para dedicarle tiempo a cada una.";
+    corto="Máximo "+CONFIG.cuposMes+" canciones por mes";
+  }
+  if(txt){
+    $("dispoHero").textContent=corto||txt; $("dispoHero").hidden=false;
     $("dispoCierre").textContent=txt; $("dispoCierre").hidden=false;
   }
   if(CONFIG.promoHasta){
     var fin=new Date(CONFIG.promoHasta+"T23:59:59");
     if(!isNaN(fin) && fin>=new Date()){
       var meses=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
-      $("promo").textContent="El 40 % OFF vale para las reservas hechas hasta el "+fin.getDate()+" de "+meses[fin.getMonth()]+".";
+      var fecha=fin.getDate()+" de "+meses[fin.getMonth()];
+      $("promo").textContent="El 40 % OFF vale para las reservas hechas hasta el "+fecha+" inclusive.";
       $("promo").hidden=false;
+      $("selloHero").textContent="40 % OFF · hasta el "+fecha;
     }
   }
 
