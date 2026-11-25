@@ -74,6 +74,21 @@
   .play-grande:active .circulo{background:var(--ambar)}
   .play-grande[hidden]{display:none}
 
+  /* Oferta en la primera pantalla */
+  .oferta{margin-top:18px;background:linear-gradient(160deg,#2a1d10,var(--panel));border:1.5px solid var(--dorado);
+    border-radius:20px;padding:18px 18px 16px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+  .sello{display:inline-block;background:var(--dorado);color:#1a1209;font-weight:900;font-size:15px;letter-spacing:.04em;
+    border-radius:99px;padding:6px 14px}
+  .oferta .antes{margin:12px 0 0;color:var(--suave);font-size:16px}
+  .oferta .antes s{color:var(--arena)}
+  .oferta .ahora{margin:2px 0 0;font-size:clamp(40px,12vw,56px);font-weight:900;line-height:1.05;color:var(--crema)}
+  .oferta .incluye{margin:8px 0 0;font-size:16.5px}
+  .oferta .pago{margin:8px 0 0;color:var(--suave);font-size:14.5px}
+  .oferta .btn{width:100%;margin-top:14px;font-size:18px}
+  .ver-como{display:inline-flex;align-items:center;justify-content:center;min-height:46px;margin-top:6px;padding:0 12px;
+    color:var(--crema);font-weight:700;text-decoration:none}
+  #video .video-caja{position:relative;width:auto;max-width:100%;height:min(70vh,620px);height:min(70svh,620px);margin:20px auto 0}
+
   /* 2 · Video del plan de acción */
   .video-caja{border-radius:18px;overflow:hidden;background:#000;border:1px solid var(--linea);
     aspect-ratio:9/16;width:min(100%,360px);margin:22px auto 0}
@@ -160,12 +175,14 @@
     <div class="marca"><span class="logo">MR</span> MR PRODUCCIONES</div>
     <p class="kicker">Producción musical cristiana a distancia</p>
     <h1>Tu canción producida, mezclada y masterizada en <span class="oro">6 días</span>.</h1>
-    <div class="video-caja" id="videoCaja">
-      <div class="video-pronto" id="videoPronto">
-        <span style="font-size:34px">🎬</span>
-        <b>El video del plan de acción llega muy pronto</b>
-        <span>Mientras tanto, aquí abajo tienes cada paso con su fecha.</span>
-      </div>
+    <div class="oferta" id="oferta">
+      <span class="sello">40 % OFF</span>
+      <p class="antes">Antes <s>USD 250</s></p>
+      <p class="ahora">USD 149,80</p>
+      <p class="incluye">Producción, mezcla, mastering y <b class="oro">video lyric de regalo</b>.</p>
+      <p class="pago">Pagas la mitad para empezar (USD 74,90) y la otra mitad el día 7, con todo aprobado.</p>
+      <a class="btn btn-oro" href="#terminos" data-ev="OfertaQuieroMiCancion">Quiero mi canción</a>
+      <a class="ver-como" href="#plan" data-ev="OfertaVerComo">Mira cómo trabajamos ↓</a>
     </div>
   </div>
 </header>
@@ -204,6 +221,22 @@
           <h3>Te entrego el video lyric y pagas la otra mitad</h3>
           <p>Recibes tu video lyric y, con todo aprobado, abonas los USD 74,90 restantes.</p></div></li>
     </ol>
+  </div>
+</section>
+
+<!-- ================= VIDEO DEL PLAN DE ACCIÓN ================= -->
+<section id="video">
+  <div class="wrap">
+    <p class="kicker">Video</p>
+    <h2>Te lo explico en video</h2>
+    <p class="suave">Te cuento paso a paso cómo trabajamos tu canción.</p>
+    <div class="video-caja" id="videoCaja">
+      <div class="video-pronto" id="videoPronto">
+        <span style="font-size:34px">🎬</span>
+        <b>El video del plan de acción llega muy pronto</b>
+        <span>Mientras tanto, aquí abajo tienes cada paso con su fecha.</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -404,6 +437,7 @@ var TRABAJOS = [
       (CONFIG.videoPortada?' poster="'+esc(CONFIG.videoPortada)+'"':'')+' src="'+esc(CONFIG.video)+'"></video>';
     caja.insertAdjacentHTML("beforeend",'<button type="button" class="play-grande" id="playGrande" aria-label="Ver el video con sonido"><span class="circulo">🔊</span>Toca para escucharlo con sonido</button>');
     var vp=document.getElementById("videoPlan"), pg=document.getElementById("playGrande"), medido=false;
+    if("IntersectionObserver" in window){ var io=new IntersectionObserver(function(es){ if(es[0].isIntersecting){ try{vp.currentTime=0;}catch(e){} vp.play().catch(function(){}); io.disconnect(); } },{threshold:.5}); io.observe(caja); }
     vp.muted=true; vp.controls=false;
     pg.addEventListener("click",function(){
       pg.hidden=true; vp.loop=false; vp.muted=false; vp.currentTime=0; vp.controls=true; vp.play();
