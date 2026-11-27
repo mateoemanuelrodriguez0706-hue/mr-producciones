@@ -105,6 +105,8 @@ src="https://www.facebook.com/tr?id=1355082489975079&ev=PageView&noscript=1"/></
   .quien-soy b{display:block;font-size:15px;letter-spacing:.04em}
   .quien-soy span{font-size:13px;color:var(--suave)}
   .hero .kicker{margin-bottom:6px}
+  .quien-soy{cursor:pointer}
+  .hero .sub{margin-top:12px}
   .precio-linea{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin:12px 0 0}
   .precio-linea s{color:var(--arena);font-size:16px}
   .precio-linea .ahora{font-size:30px;font-weight:900;line-height:1;color:var(--crema);letter-spacing:-.02em}
@@ -162,6 +164,23 @@ src="https://www.facebook.com/tr?id=1355082489975079&ev=PageView&noscript=1"/></
   .beneficio{background:var(--panel);border:1px solid var(--linea);border-radius:16px;padding:14px 16px}
   .beneficio h3{font-size:17px;margin-bottom:4px}
   .beneficio p{margin:0;color:var(--suave);font-size:15.5px}
+  .pasos3 .beneficio{position:relative;padding-left:58px}
+  .pasos3 .num{position:absolute;left:14px;top:14px;width:32px;height:32px;border-radius:50%;background:var(--dorado);color:#1a1209;display:grid;place-items:center;font-weight:900}
+  .cta-medio{display:grid;gap:8px;margin-top:22px}
+  .cta-medio .btn{width:100%;font-size:17.5px}
+  .cta-pregunta{margin:0;text-align:center;font-weight:750;font-size:17px}
+  .regalos{margin-top:14px;padding-top:12px;border-top:1px dashed var(--cacao)}
+  .regalos .kicker{margin-bottom:2px}
+  .regalos .ok{background:transparent;font-size:17px}
+  .regalos span.t{display:block}
+  .regalos .regalo{margin:2px 0 2px}
+  .recupero{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:60;max-width:460px;margin:0 auto;
+    background:var(--panel);border:1.5px solid var(--dorado);border-radius:18px;padding:14px 16px;box-shadow:0 14px 40px rgba(0,0,0,.55)}
+  .recupero[hidden]{display:none}
+  .recupero p{margin:0 26px 10px 0;font-size:15.5px}
+  .rec-acciones{display:grid;grid-template-columns:1.4fr 1fr;gap:8px}
+  .rec-acciones .btn{min-height:48px;padding:10px;font-size:16px;width:100%}
+  .rec-cerrar{position:absolute;top:6px;right:8px;width:36px;height:36px;border:0;background:transparent;color:var(--suave);font-size:24px;cursor:pointer}
   .presenta{background:var(--panel);border:1px solid var(--linea);border-radius:20px;padding:20px;margin-top:22px}
   .presenta .cabeza{display:flex;gap:14px;align-items:center;margin-bottom:14px}
   .avatar{width:76px;height:76px;border-radius:50%;flex:0 0 76px;background:var(--panel2);border:2px solid var(--dorado);overflow:hidden}
@@ -273,12 +292,13 @@ src="https://www.facebook.com/tr?id=1355082489975079&ev=PageView&noscript=1"/></
 <!-- ================= 1 · HERO ================= -->
 <header class="hero" id="inicio">
   <div class="wrap">
-    <div class="quien-soy"><img id="fotoHero" width="42" height="42" alt="Mateo, productor musical"><span><b>MR PRODUCCIONES</b><span>Mateo · productor musical</span></span></div>
+    <div class="quien-soy" id="quienSoy" role="button" tabindex="0" aria-label="Escuchar una canción de Mateo"><img id="fotoHero" width="42" height="42" alt="Mateo, productor musical"><span><b>MR PRODUCCIONES</b><span>Mateo · productor musical</span></span></div>
     <p class="kicker">Para cantantes y compositores cristianos</p>
-    <h1>Mándame tu letra y una nota de voz. Yo la convierto en <span class="oro">tu canción terminada</span>.</h1>
-    <p class="sub">Producción, mezcla y mastering a distancia. Sin estudio y sin saber de música. Lista en 6 días.</p>
+    <h1>Tu letra, convertida en <span class="oro">tu canción terminada</span>.</h1>
 
     <div class="pista-hero" id="pistaHero"></div>
+
+    <p class="sub">Mándame tu letra y una nota de voz. Sin estudio y sin saber de música. Lista en 6 días.</p>
 
     <div class="precio-linea" id="oferta">
       <span class="sello" id="selloHero">40 % OFF</span>
@@ -324,6 +344,61 @@ src="https://www.facebook.com/tr?id=1355082489975079&ev=PageView&noscript=1"/></
       <h3 class="ad-titulo">Lo que dicen los artistas</h3>
       <div class="testimonios" id="testimonios"></div>
     </div>
+    <div class="cta-medio">
+      <p class="cta-pregunta">¿Te gustaría que tu canción suene así?</p>
+      <a class="btn btn-wa wa-consulta" href="#reservar" data-ev="WhatsappConsultaEscuchar"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg> Consultar por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 3 · IDENTIFICACIÓN ================= -->
+<section id="te-pasa">
+  <div class="wrap">
+    <p class="kicker">¿Te pasa esto?</p>
+    <h2>Tienes la canción. Te falta que suene como la escuchas por dentro.</h2>
+    <ul class="situaciones">
+      <li class="aparece"><span class="ico">📝</span><span><b>Tienes la letra escrita</b><span class="t">pero no sabes por dónde empezar para convertirla en una canción.</span></span></li>
+      <li class="aparece"><span class="ico">📱</span><span><b>Cantas con el celular</b><span class="t">y la grabación no suena como la que tienes en la cabeza.</span></span></li>
+      <li class="aparece"><span class="ico">🎹</span><span><b>Tienes la melodía</b><span class="t">pero no sabes qué instrumentos ni qué arreglo le quedan.</span></span></li>
+      <li class="aparece"><span class="ico">🚀</span><span><b>Quieres publicarla</b><span class="t">en Spotify y en tus redes, y no sabes cuáles son los pasos.</span></span></li>
+      <li class="aparece"><span class="ico">⛪</span><span><b>Quieres compartirla</b><span class="t">con tu iglesia, tu familia o tu comunidad, y que suene digna del mensaje.</span></span></li>
+    </ul>
+    <p class="puente">No necesitas un estudio ni saber de producción. Para eso estoy yo.</p>
+  </div>
+</section>
+
+<!-- ================= 3b · MECANISMO ================= -->
+<section id="metodo">
+  <div class="wrap">
+    <p class="kicker">Por qué pasa</p>
+    <h2>Lo que escuchas por dentro tiene instrumentos. Tu nota de voz, no.</h2>
+    <p class="suave">Cuando cantas tu canción en tu cabeza, ya la escuchas con música. La nota de voz del celular solo guarda tu voz. Lo que falta en el medio es la producción: el arreglo, los instrumentos, la mezcla y el mastering. Eso lo hago yo, a distancia y en 3 pasos:</p>
+    <div class="beneficios pasos3">
+      <div class="beneficio aparece"><span class="num">1</span><h3>Hoy: me mandas tu letra y una nota de voz</h3><p>Cantando la melodía como te salga. No necesitas tocar ningún instrumento.</p></div>
+      <div class="beneficio aparece"><span class="num">2</span><h3>En 2 días: escuchas la música de tu canción</h3><p>Armo el arreglo a partir de tu melodía. Si algo no te convence, lo cambio: tienes 4 revisiones, cada una lista en 1 día.</p></div>
+      <div class="beneficio aparece"><span class="num">3</span><h3>El día 6: tu canción terminada</h3><p>Grabas tu voz desde casa con mis indicaciones y yo hago la mezcla y el mastering. El día 7 recibes tu video lyric.</p></div>
+    </div>
+    <div class="cta-medio">
+      <a class="btn btn-wa wa-consulta" href="#reservar" data-ev="WhatsappConsultaMetodo"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg> Consultar por WhatsApp</a>
+      <p class="wa-nota">Cuéntame de tu canción. Te respondo yo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 4 · SOLUCIÓN + PRESENTACIÓN ================= -->
+<section id="como-te-ayudo">
+  <div class="wrap">
+    <p class="kicker">Cómo te ayudo</p>
+    <h2>Tu canción, producida a distancia y con una persona real detrás</h2>
+    <div class="beneficios">
+      <div class="beneficio aparece"><h3>🎧 Una producción pensada para tu canción</h3><p>No uso una pista genérica: armo la música a partir de tu letra, tu melodía y lo que quieres transmitir.</p></div>
+      <div class="beneficio aparece"><h3>💬 Hablas directo con quien la produce</h3><p>Me escribes a mí. No hay intermediarios ni respuestas automáticas.</p></div>
+      <div class="beneficio aparece"><h3>🏠 Grabas tu voz desde casa</h3><p>Con tu celular o en un estudio de tu ciudad. Te doy las indicaciones para que la toma salga bien.</p></div>
+      <div class="beneficio aparece"><h3>📅 Sabes qué pasa cada día</h3><p>Cada paso tiene fecha desde el día del anticipo, y te acompaño en todo el proceso.</p></div>
+      <div class="beneficio aparece"><h3>📦 Te llevas todos los archivos</h3><p>La canción masterizada, la pista sin voz y el video lyric, listos para compartir.</p></div>
+      <div class="beneficio aparece"><h3>🎼 La canción es tuya</h3><p>Los derechos son 100 % del artista, y te asesoro para subirla a Spotify y otras plataformas.</p></div>
+    </div>
+
   </div>
 </section>
 
@@ -356,39 +431,6 @@ src="https://www.facebook.com/tr?id=1355082489975079&ev=PageView&noscript=1"/></
   </div>
 </section>
 
-<!-- ================= 3 · IDENTIFICACIÓN ================= -->
-<section id="te-pasa">
-  <div class="wrap">
-    <p class="kicker">¿Te pasa esto?</p>
-    <h2>Tienes la canción. Te falta que suene como la escuchas por dentro.</h2>
-    <ul class="situaciones">
-      <li class="aparece"><span class="ico">📝</span><span><b>Tienes la letra escrita</b><span class="t">pero no sabes por dónde empezar para convertirla en una canción.</span></span></li>
-      <li class="aparece"><span class="ico">📱</span><span><b>Cantas con el celular</b><span class="t">y la grabación no suena como la que tienes en la cabeza.</span></span></li>
-      <li class="aparece"><span class="ico">🎹</span><span><b>Tienes la melodía</b><span class="t">pero no sabes qué instrumentos ni qué arreglo le quedan.</span></span></li>
-      <li class="aparece"><span class="ico">🚀</span><span><b>Quieres publicarla</b><span class="t">en Spotify y en tus redes, y no sabes cuáles son los pasos.</span></span></li>
-      <li class="aparece"><span class="ico">⛪</span><span><b>Quieres compartirla</b><span class="t">con tu iglesia, tu familia o tu comunidad, y que suene digna del mensaje.</span></span></li>
-    </ul>
-    <p class="puente">No necesitas un estudio ni saber de producción. Para eso estoy yo.</p>
-  </div>
-</section>
-
-<!-- ================= 4 · SOLUCIÓN + PRESENTACIÓN ================= -->
-<section id="como-te-ayudo">
-  <div class="wrap">
-    <p class="kicker">Cómo te ayudo</p>
-    <h2>Tu canción, producida a distancia y con una persona real detrás</h2>
-    <div class="beneficios">
-      <div class="beneficio aparece"><h3>🎧 Una producción pensada para tu canción</h3><p>No uso una pista genérica: armo la música a partir de tu letra, tu melodía y lo que quieres transmitir.</p></div>
-      <div class="beneficio aparece"><h3>💬 Hablas directo con quien la produce</h3><p>Me escribes a mí. No hay intermediarios ni respuestas automáticas.</p></div>
-      <div class="beneficio aparece"><h3>🏠 Grabas tu voz desde casa</h3><p>Con tu celular o en un estudio de tu ciudad. Te doy las indicaciones para que la toma salga bien.</p></div>
-      <div class="beneficio aparece"><h3>📅 Sabes qué pasa cada día</h3><p>Cada paso tiene fecha desde el día del anticipo, y te acompaño en todo el proceso.</p></div>
-      <div class="beneficio aparece"><h3>📦 Te llevas todos los archivos</h3><p>La canción masterizada, la pista sin voz y el video lyric, listos para compartir.</p></div>
-      <div class="beneficio aparece"><h3>🎼 La canción es tuya</h3><p>Los derechos son 100 % del artista, y te asesoro para subirla a Spotify y otras plataformas.</p></div>
-    </div>
-
-  </div>
-</section>
-
 <!-- ================= 5 · OFERTA DETALLADA ================= -->
 <section id="oferta-completa">
   <div class="wrap">
@@ -401,10 +443,17 @@ src="https://www.facebook.com/tr?id=1355082489975079&ev=PageView&noscript=1"/></
         <li><span class="ok">✓</span><span><b>Mastering</b><span class="t">El acabado final para que suene bien en Spotify, en el celular y en la iglesia.</span></span></li>
         <li><span class="ok">✓</span><span><b>Pista sin voz</b><span class="t">Para cantarla en vivo o en tu congregación.</span></span></li>
         <li><span class="ok">✓</span><span><b>Hasta 4 revisiones</b><span class="t">Si quieres cambiar algo, me lo dices y lo resuelvo en 1 día.</span></span></li>
-        <li><span class="ok">✓</span><span><b>Indicaciones para grabar tu voz</b><span class="t">Te explico cómo grabarla en casa para que salga bien.</span></span></li>
-        <li><span class="ok">✓</span><span><b>Video lyric</b><span class="regalo">REGALO</span><span class="t">Tu canción con la letra en pantalla, lista para publicar.</span></span></li>
-        <li><span class="ok">✓</span><span><b>Derechos 100 % tuyos</b><span class="t">La canción es del artista, y te asesoro para subirla a plataformas.</span></span></li>
+        <li><span class="ok">✓</span><span><b>Derechos 100 % tuyos</b><span class="t">La canción es del artista.</span></span></li>
       </ul>
+      <div class="regalos">
+        <p class="kicker">Incluido sin costo extra</p>
+        <ul class="componentes">
+          <li><span class="ok">🎬</span><span><b>Video lyric de tu canción</b><span class="regalo">REGALO</span><span class="t">Tu canción con la letra en pantalla, lista para publicar.</span></span></li>
+          <li><span class="ok">✍️</span><span><b>Ayuda para terminar tu letra</b><span class="t">Si todavía no está terminada, la terminamos juntos.</span></span></li>
+          <li><span class="ok">🎙️</span><span><b>Indicaciones para grabar tu voz</b><span class="t">Te explico cómo grabarla en casa para que salga bien.</span></span></li>
+          <li><span class="ok">🚀</span><span><b>Asesoría para publicarla</b><span class="t">Te guío para subirla a Spotify y otras plataformas.</span></span></li>
+        </ul>
+      </div>
       <div class="cuentas">
         <div class="total"><span><small>Precio de referencia <s>USD 250</s></small><b>USD 149,80</b></span><span class="ahorro">Ahorras USD 100,20 (40 %)</span></div>
         <div><small>Para empezar (día 0)</small><b>USD 74,90</b></div>
@@ -413,6 +462,23 @@ src="https://www.facebook.com/tr?id=1355082489975079&ev=PageView&noscript=1"/></
       <p class="promo" id="promo" hidden></p>
       <a class="btn btn-oro" href="#reservar" data-ev="OfertaQuieroProducir">Quiero producir mi canción</a>
       <a class="o-consulta wa-consulta" href="#reservar" data-ev="WhatsappConsultaOferta">¿Tienes dudas? Consúltame por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 5b · TRANQUILIDAD ================= -->
+<section id="tranquilidad">
+  <div class="wrap">
+    <p class="kicker">Tu tranquilidad</p>
+    <h2>La segunda mitad la pagas solo cuando tu canción te gusta</h2>
+    <div class="beneficios">
+      <div class="beneficio aparece"><h3>💵 Empiezas con USD 74,90</h3><p>No pagas el total por adelantado. La otra mitad, recién con todo aprobado.</p></div>
+      <div class="beneficio aparece"><h3>🔁 4 revisiones incluidas</h3><p>Si algo no te convence, me lo dices y lo cambio en 1 día.</p></div>
+      <div class="beneficio aparece"><h3>📄 Condiciones escritas</h3><p>Las mismas para todos los artistas. Las lees antes de reservar.</p></div>
+      <div class="beneficio aparece"><h3>💬 Hablas conmigo</h3><p>Desde la primera consulta hasta la entrega, sin intermediarios.</p></div>
+    </div>
+    <div class="cta-medio">
+      <a class="btn btn-oro" href="#reservar" data-ev="TranquilidadReservar">Quiero producir mi canción</a>
     </div>
   </div>
 </section>
@@ -454,6 +520,10 @@ src="https://www.facebook.com/tr?id=1355082489975079&ev=PageView&noscript=1"/></
           <p>Recibes tu video lyric y, con todo aprobado, abonas los USD 74,90 restantes.</p></div></li>
     </ol>
     <p class="nota">Las fechas se cumplen si tu voz me llega hasta el día 4. Si llega más tarde, o si pides cambios después de esa fecha, los pasos siguientes se corren los mismos días, y siempre te aviso las nuevas fechas.</p>
+    <div class="cta-medio">
+      <a class="btn btn-oro" href="#reservar" data-ev="ProcesoReservar">Reservar mi producción</a>
+      <a class="btn btn-linea wa-consulta" href="#reservar" data-ev="WhatsappConsultaProceso"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg> Preguntar algo antes</a>
+    </div>
   </div>
 </section>
 
@@ -559,6 +629,14 @@ src="https://www.facebook.com/tr?id=1355082489975079&ev=PageView&noscript=1"/></
   </div>
 </footer>
 
+<div class="recupero" id="recupero" role="dialog" aria-label="Escuchar una canción" hidden>
+  <button type="button" class="rec-cerrar" id="recCerrar" aria-label="Cerrar">×</button>
+  <p><b>¿Tienes 30 segundos?</b> <span id="recTexto">Escucha una canción que produje a distancia.</span></p>
+  <div class="rec-acciones">
+    <button type="button" class="btn btn-oro" id="recPlay">▶ Escuchar</button>
+    <a class="btn btn-linea wa-consulta" href="#reservar" data-ev="WhatsappConsultaRecupero">Preguntar</a>
+  </div>
+</div>
 <div class="barra-fija" id="barraFija" aria-hidden="true">
   <span class="precio-mini">40 % OFF<b>USD 149,80</b></span>
   <a class="btn btn-wa wa-consulta" href="#reservar" data-ev="WhatsappConsultaBarra" tabindex="-1"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg> Consultar</a>
@@ -629,7 +707,7 @@ var TESTIMONIOS = [];
     if(CONFIG.clarity){
       (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;
       t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script",CONFIG.clarity);
-      clarity("set","version_web","v6");
+      clarity("set","version_web","v8");
     }
     /* primeros segundos */
     evUna("Ve_hero");
@@ -658,7 +736,7 @@ var TESTIMONIOS = [];
       if(x.isIntersecting && !vistas[x.target.id]){ vistas[x.target.id]=1; ev("Ve_"+x.target.id.replace(/-/g,"_"));
         if(x.target.id==="oferta-completa") estandar("ViewContent", OFERTA, true); }
     }); },{threshold:.35});
-    ["escuchar","te-pasa","como-te-ayudo","oferta-completa","plan","preguntas","reservar"].forEach(function(id){ if($(id)) ioS.observe($(id)); });
+    ["escuchar","te-pasa","metodo","como-te-ayudo","video","oferta-completa","tranquilidad","plan","preguntas","reservar"].forEach(function(id){ if($(id)) ioS.observe($(id)); });
     var ioA=new IntersectionObserver(function(es){ es.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add("visto"); ioA.unobserve(x.target); } }); },{threshold:.15});
     [].forEach.call(document.querySelectorAll(".aparece"),function(el){ ioA.observe(el); });
   } else { [].forEach.call(document.querySelectorAll(".aparece"),function(el){ el.classList.add("visto"); }); }
@@ -738,6 +816,24 @@ var TESTIMONIOS = [];
     $("pistaHero").appendChild(tarjetaHero);
     tarjetaHero.addEventListener("click",function(e){ tarjetaHero.classList.add("tocada");
       if(e.target.closest(".play")||e.target.closest(".barra")) return; tarjetaHero.querySelector(".play").click(); });
+    var qs=$("quienSoy");
+    function tocarFoto(e){ if(e.type==="keydown" && e.key!=="Enter" && e.key!==" ") return; e.preventDefault(); ev("FotoHero");
+      tarjetaHero.classList.add("tocada"); if(!tarjetaHero.classList.contains("sonando")) tarjetaHero.querySelector(".play").click(); }
+    if(qs){ qs.addEventListener("click",tocarFoto); qs.addEventListener("keydown",tocarFoto); }
+    /* Aviso para indecisos: una sola vez, a los 8 s si todavía no hizo nada, o si vuelve arriba después de bajar mucho. */
+    var rec=$("recupero"), recHecho=false, interactuo=false, maxY=0;
+    $("recTexto").textContent="Escucha «"+nombreDe(h0)+"», una canción que produje a distancia.";
+    function recMostrar(motivo){ if(recHecho||document.visibilityState==="hidden"||tarjetaHero.classList.contains("sonando")) return;
+      recHecho=true; rec.hidden=false; ev("RecuperoVer",{motivo:motivo}); }
+    function recCerrar(){ rec.hidden=true; }
+    ["pointerdown","keydown"].forEach(function(t){ document.addEventListener(t,function(e){ if(!rec.contains(e.target)) interactuo=true; },{passive:true}); });
+    window.addEventListener("scroll",function(){ var y=window.scrollY||0; if(y>150) interactuo=true; if(y>maxY) maxY=y;
+      if(maxY>1500 && y<300) recMostrar("volvio_arriba"); },{passive:true});
+    setTimeout(function(){ if(!interactuo) recMostrar("quieto_8s"); },8000);
+    $("recCerrar").addEventListener("click",function(){ ev("RecuperoCerrar"); recCerrar(); });
+    $("recPlay").addEventListener("click",function(){ ev("RecuperoPlay"); recCerrar(); tarjetaHero.classList.add("tocada");
+      tarjetaHero.scrollIntoView({behavior:"smooth",block:"center"}); if(!tarjetaHero.classList.contains("sonando")) tarjetaHero.querySelector(".play").click(); });
+    rec.querySelector(".wa-consulta").addEventListener("click",recCerrar);
   }
   var cont=$("pistas");
   if(!items.length){
